@@ -17,8 +17,8 @@
 .ui-hue();
 
 .ui-saturation() when (@ui-s-h <=  80) { @ui-saturation: min(@ui-s-s,  5%); } // minimize saturation for brown
-.ui-saturation() when (@ui-s-h >   80) and (@ui-s-h <  160) { @ui-saturation: min(@ui-s-s, 12%); } // reduce saturation for green
-.ui-saturation() when (@ui-s-h >= 160) and (@ui-s-l <  @ui-inv) { @ui-saturation: min(@ui-s-s, 48%); } // limit max saturation for very dark backgrounds
+.ui-saturation() when (@ui-s-h >   80) and (@ui-s-h <  160) { @ui-saturation: min(@ui-s-s, 20%); } // reduce saturation for green
+.ui-saturation() when (@ui-s-h >= 160) and (@ui-s-l <  @ui-inv) { @ui-saturation: min(@ui-s-s, 80%); } // limit max saturation for very dark backgrounds
 .ui-saturation() when (@ui-s-h >= 160) and (@ui-s-l >= @ui-inv) { @ui-saturation: @ui-s-s; }
 .ui-saturation();
 
@@ -33,7 +33,7 @@
 .ui-lightness();
 
 // Main colors -----------------
-@ui-fg:     hsl(@ui-hue, min(@ui-saturation, 18%), max(@ui-lightness*3, 66%) );
+@ui-fg:     hsl(@ui-hue, min(@ui-saturation, 18%), max(@ui-lightness*3, 90%) );
 @ui-bg:     hsl(@ui-hue, @ui-saturation, @ui-lightness); // normalized @syntax-background-color
 @ui-border: hsl(@ui-hue, @ui-saturation, @ui-lightness-border);
 
@@ -44,7 +44,7 @@
 // These variables are only used in this theme
 // ----------------------------------------------
 
-@ui-theme-name: one-dark-ui;
+@ui-theme-name: dark-contrast-ui;
 
 // Text (Custom) -----------------
 @text-color-faded: fade(@text-color, 20%);
@@ -57,9 +57,11 @@
 
 
 // Background (Custom) -----------------
-@level-1-color: lighten(@base-background-color, 6%);
-@level-2-color: @base-background-color;
-@level-3-color: darken(@base-background-color, 3%);
+@level-1-color: black;//lighten(@base-background-color, 6%);
+@level-2-color: black;//@base-background-color;
+@level-3-color: black;//darken(@base-background-color, 3%);
+
+@fg-darkest				: darken(white,70%);
 
 
 // Accent (Custom) -----------------
@@ -87,15 +89,15 @@
 
 @progress-background-color:         @accent-color;
 
-@scrollbar-color:                   @level-1-color;
+@scrollbar-color:                   @fg-darkest;
 @scrollbar-background-color:        @level-3-color; // replaced `transparent` with a solid color to test https://github.com/atom/one-light-ui/issues/4
-@scrollbar-color-editor:            contrast(@ui-syntax-color, darken(@ui-syntax-color, 18%), lighten(@ui-syntax-color, 9%) );
+@scrollbar-color-editor:            white;
 @scrollbar-background-color-editor: @ui-syntax-color;
 
 
 @tab-text-color:                    @text-color-subtle;
 @tab-text-color-active:             @text-color-highlight;
-@tab-text-color-editor:             contrast(@ui-syntax-color, darken(@ui-syntax-color, 50%), @text-color-highlight );
+@tab-text-color-editor:             contrast(@ui-syntax-color, darken(@ui-syntax-color, 10%), @text-color-highlight );
 @tab-background-color-editor:       @ui-syntax-color;
 
 @tooltip-background-color:          @accent-color;
