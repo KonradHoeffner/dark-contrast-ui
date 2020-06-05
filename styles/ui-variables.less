@@ -1,5 +1,5 @@
 
-@import "ui-variables-custom"; // import colors and custom variables
+@import "ui-variables-custom.less"; // import colors and custom variables
 
 // ONE dark UI variables
 // ----------------------------------------------
@@ -12,7 +12,7 @@
 
 // Text -----------------
 @text-color:            @ui-fg;
-@text-color-subtle:     fadeout(@text-color, 10%);
+@text-color-subtle:     fadeout(@text-color, 20%);
 @text-color-highlight:  lighten(@text-color, 20%);
 @text-color-selected:   white;
 
@@ -55,12 +55,12 @@
 @panel-heading-background-color:   @level-2-color;
 @panel-heading-border-color:       @base-border-color;
 
-@overlay-background-color:         @level-2-color;
+@overlay-background-color:         mix(@level-2-color, @level-3-color);
 @overlay-border-color:             @base-border-color;
 
 @button-background-color:          @level-1-color;
 @button-background-color-hover:    lighten(@button-background-color, 2%);
-@button-background-color-selected: @accent-color;
+@button-background-color-selected: @accent-bg-color;
 @button-border-color:              @base-border-color;
 
 @tab-bar-background-color:         @level-3-color;
@@ -94,4 +94,4 @@
 
 
 // Font -----------------
-@font-family: 'BlinkMacSystemFont', 'Lucida Grande', 'Segoe UI', Ubuntu, Cantarell, sans-serif;
+@font-family: system-ui;
