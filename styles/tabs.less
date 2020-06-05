@@ -42,7 +42,7 @@
       color: @tab-text-color-active;
       background-color: @tab-background-color-active;
       box-shadow: none;
-      font-weight: bold;
+      //font-weight: bold;
     }
     &:first-of-type {
       border-left-color: transparent;
@@ -218,7 +218,10 @@
 
 atom-pane-axis > atom-pane.active,
 atom-pane-container > atom-pane.pane {
-  .tab.active:before {
+    .tab.active:not([data-type="TreeView"]) {
+      border-bottom: 2px solid @accent-color;
+    }
+/*  .tab.active:before {
     content: "";
     position: absolute;
     pointer-events: none;
@@ -226,9 +229,9 @@ atom-pane-container > atom-pane.pane {
     top: 0;
     left: -1px; // cover left border
     bottom: 0;
-    width: 2px;
+    width: 3px;
     background: mix(@text-color, @tab-background-color-editor, 33%);
-  }
+  }*/
 }
 .pane:focus-within {
   .tab.active:before {
